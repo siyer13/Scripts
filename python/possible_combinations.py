@@ -27,14 +27,14 @@ def  generate_number(num_set):
     return number
 
 # function to create numbers for list of digit tuples
-def make_number(digit_list):
+def number_list(digit_list):
     perm_num_list = []
     for num_set in digit_list:
         number = generate_number(num_set)
         perm_num_list.append(number)
     return perm_num_list
 
-given_list = make_digits(9545)
+given_list = make_digits(95345)
 list_of_permuation = list (itertools.permutations(given_list))
-output_list = make_number(list_of_permuation)
+output_list = number_list(list_of_permuation)
 print(output_list)

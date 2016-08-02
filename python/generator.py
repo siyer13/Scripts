@@ -20,7 +20,7 @@ def name_gen():
     name = random.choice(data).strip()
     return name
 
-# generate age between 20 and 50
+# calculate age for a given date of birth
 def age_gen(dob):
     today = date.today()
     format_string = '%m/%d/%Y'

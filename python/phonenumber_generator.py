@@ -1,12 +1,4 @@
-import random
-import os
-
-#data = open(r"C:\Users\python\names.txt").readlines()
-#print(random.choice(data))
-#print(random.randint(20,50))
-
-
-# phone number generator
+# A ten digit phone number generator
 phonenumber = ''
 for i in range(0,10):
     if i == 0:

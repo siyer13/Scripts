@@ -21,7 +21,7 @@ def name_gen():
     return name
 
 # calculate age for a given date of birth
-def age_gen(dob):
+def age_calculator(dob):
     today = date.today()
     format_string = '%m/%d/%Y'
     date_object = datetime.strptime(dob,format_string)

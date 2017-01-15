@@ -43,7 +43,10 @@ class HiveJobMonitor:
         clear_n_rerun = 'sh ' + self.home_dir + '/scripts/clear_n_rerun.sh ' + command + ' '  + task_id + ' ' + dag_id
         subprocess.call(clear_n_rerun.split(), shell=False)
         logging.info(task_id + ' cleared.')
-        self.send_notification(self.args['slack_channel'], task_id + ' cleared and will be picked up by backfill')
+        if command == 'backfill':
+            self.send_notification(self.args['slack_channel'], 'Pipeline stuck, backfill triggered.')
+        else:
+            self.send_notification(self.args['slack_channel'], task_id + ' cleared and re-ran.')
 
     def job_monitor(self):
         current_date = date.today()
@@ -73,7 +76,7 @@ class HiveJobMonitor:
                 task_ids = cur.fetchall()
                 for task_id in task_ids:
                     log_line = str(tail('-1', log_file + str(task_id[0]) + '/' + str(str(current_date) + 'T00:00:00')))
-                    ouput = awk(awk(tail('-50', log_file + '/log_monitor/' + str(str(current_date) + 'T00:00:00')), "-F", " ", "{print $9}"),"-F","/","{print $7}"))
+                    output = awk(awk(tail('-50', log_file + '/log_monitor/' + str(str(current_date) + 'T00:00:00')), "-F", " ", "{print $9}"),"-F","/","{print $7}")
                     tasks = set()
                     for task in output:
                         tasks.add(task)

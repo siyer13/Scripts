@@ -1,25 +1,26 @@
 #!/bin/bash
 
+eta=$1
+echo $eta
 today=`date +%m/%d/%Y`
-yesterday=`date -d "yesterday 13:00 " '+%m/%d/%Y'`
-hours="1"
-ETA="9"
-
-recipients="siyer@pandora.com"
-subject="Enterprise Analytics: Delay in PvA data refreshes ($today)"
-message="<html>
+yesterday=`date -d '-2 day'  '+%m/%d/%Y'`
+recipients="siyer@gmail.com"
+from="siyer@gmail.com"
+subject="Delay mail($today)"
+message="
+<html>
 
 <body>
     <table border='1' width='600px'>
         <thead>
-            <th> <h4> PvA Data source refresh delays. </h4></th>
+            <th>  Data source refresh delayed.</th>
         </thead>
     </table>
     <table border='1' width='600px'>
-        <tbody>
+        <tbody bgcolor='#FFFFCC'>
             <tr>
-                <td> <b> Start today: $today </td>
-                <td> <b> Target group: PvA Analysts </td>
+                <td> <b> Start Date: $today </td>
+                <td> <b> Target group:  Analysts </td>
             </tr>
         </tbody>
     </table>
@@ -27,16 +28,17 @@ message="<html>
         <tbody>
             <tr>
                 <td>
-                    <h3><u>Summary:</u></h3> Today- The refresh of the ESA Daily Ad Revenue Metrics nbsp; ESA Quarterly Ad Revenue Metrics datasources are delayed
-                    due to airflow and lock issues.
+                    <h3><u>Summary:</u></h3> Refresh of tasks &amp; some other datasources are delayed
+                    due to cluster, airflow and lock issues.
                     <br><br>
-                    Our pipelines had to be restarted and are behind schedule. Hive tables and tableau datasoures will be available by EOD today. Data available is
-                    complete as of $yesterday
+                    Our pipelines had to be restarted and are behind schedule. Hive tables and tableau datasoures will be available by <b>$eta</b> today. Data available is
+                    complete as of <b>$yesterday</b>.
                     <br><br>
                     Apologies for any inconvinience caused, and feel free to reach out to us if you have any questions.
                     <br><br>
                     <h3><u>Contact:</u></h3>
-                    <b>Email: </b> <a href mailto:dist-esa-support@pandora.com> esa-support </a> <b>Slack: </b> #es-analytics
+                    <b>Email: </b> <a href test@gmail.com> esa-support </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>IM: </b>
+                    <a href> Yuhooo </a>
                 </td>
             </tr>
         </tbody>
@@ -47,9 +49,9 @@ message="<html>
 
 </html>"
 
-mail  -a 'MIME-Version: 1.0' -a 'Content-Type: text/html; charset=iso-8859-1'  "$recipients" -s "$subject" << EOF
+mail  -a 'MIME-Version: 1.0' -a 'Content-Type: text/html; charset=iso-8859-1' "$recipients" -s "$subject" << EOF
 $message
 EOF
 
 
-#mail -a 'MIME-Version: 1.0' -a 'Content-Type: text/html; charset=iso-8859-1' siyer@pandora.com
+#mail -a 'MIME-Version: 1.0' -a 'Content-Type: text/html; charset=iso-8859-1' siyer@gmail.com

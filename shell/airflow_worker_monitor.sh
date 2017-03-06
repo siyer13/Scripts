@@ -18,5 +18,5 @@ if [ $count -le 1 ]
 then
     source $AIRFLOW/activate
     nohup airflow worker& >> $AIRFLOW_HOME/logs/worker.log
-    echo "$(date) INFO: Airflow workers started" >> /home/stagemaverick/planned-vs-actual/cron.log
+    echo "$(date) INFO: Airflow workers started" >> /home/siyer/planned-vs-actual/cron.log
 fi

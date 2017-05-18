@@ -7,6 +7,7 @@ def type(letter, key):
 def compressstring(given_string):
     print("Given String: ", given_string)
     present_character_count = [given_string[0],1]
+    print(present_character_count)
     letter_count_map = [present_character_count]
     for c in given_string[1:]:
         if c == present_character_count[0]:

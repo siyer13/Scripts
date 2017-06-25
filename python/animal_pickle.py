@@ -18,5 +18,6 @@ dolly = pickle.loads(my_pickled_mary)
 # Dolly and Mary are two different objects, in fact if we specify another color for dolly
 # there are no conseguencies for Mary
 dolly.color = "black"
+
 print (str.format("Dolly is {0} ", dolly.color))
 print (str.format("Mary is {0} ", mary.color))

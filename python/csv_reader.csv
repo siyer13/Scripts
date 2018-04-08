@@ -1,0 +1,14 @@
+import csv
+import sys
+
+csv.field_size_limit(sys.maxsize)
+
+file = open("team_contacts_cleaned.csv","w")
+with open('team_contacts.csv','rU') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        stripped = [col.replace('\n', ' ') for col in row]
+        file.write(','.join(stripped))
+        file.write('\n')
+file.close()
+print 'Done'

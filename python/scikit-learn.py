@@ -16,3 +16,11 @@ Text(0,0.5,'Price in dollars')
 >>> plt.grid(True)
 >>> plt.show()
 
+>>> from sklearn.linear_model import LinearRegression
+>>> X = [[6], [8], [10], [14], [18]]
+>>> Y = [[7], [9], [13], [17.5], [20]]
+>>> model = LinearRegression()
+>>> model.fit(X,Y)
+LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
+>>> print ('A 12inch pizza should cost: $%.2f' % model.predict([12][0]))
+A 12inch pizza should cost: $14.20

@@ -28,3 +28,4 @@ def get_zodiac_sign(dob):
     return sign
 
 print(get_zodiac_sign('04-04-1994'))
+print(get_zodiac_sign('13-06-1984'))

@@ -7,3 +7,4 @@ Contains shell and python scripts
 Will keep adding more
 
 
+Adding scripts for elasticsearh

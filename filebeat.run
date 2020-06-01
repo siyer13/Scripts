@@ -1,0 +1,1 @@
+(base) C02YG7QWJG5J:filebeat siyer$ docker run -v '/var/lib/docker/containers:/usr/share/dockerlogs/data:ro' -v '/var/run/docker.sock:/var/run/docker.sock' --name dolphin-filebeat dolphin-filebeat:latest
